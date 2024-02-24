@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                        return  InkWell(
                          child: Card(
                            color: Colors.black54,
-                           shape:  OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                           shape:  const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                            child: Stack(
                              children: [
                                Padding(
@@ -48,8 +48,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                  child: Column(
                                    crossAxisAlignment: CrossAxisAlignment.start,
                                    children: [
-                                     Text("${value.getNote()[index].title.toString()}",style: textStyle18,),
-                                     Text("${value.getNote()[index].subtitle.toString()}",style: textStyle18,),
+
+                                     ///___ Title
+                                     Text(value.getNote()[index].title.toString(),style: const TextStyle(fontSize: 20,color: Colors.grey,fontWeight: FontWeight.w500,)),
+                                     const SizedBox(height: 5,),
+                                     ///___ Subtitle
+                                     Text(value.getNote()[index].subtitle.toString(),style: textStyle17,),
                                    ],
                                  ),
                                ),

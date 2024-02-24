@@ -90,11 +90,11 @@ class _NoteViewScreenState extends State<NoteViewScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height:30,),
-                      Text("Title- ${widget.title}",style: textStyle18,),
+                      Text("Title- ${widget.title}",style: textStyle17,),
                       Container(height: 1,color: Colors.grey,),
                       Text(widget.time+"- "+widget.date,style: textStyleB54,),
                       const SizedBox(height: 15,),
-                      Text("Subtitle- ${widget.subtitle}",style: textStyle18,),
+                      Text("Subtitle- ${widget.subtitle}",style: textStyle17,),
                     ],
                   ),
                 ) ,
