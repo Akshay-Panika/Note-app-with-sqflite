@@ -19,35 +19,35 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Note'),
+        title: const Text('Add Note'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextField(
               controller: _titleController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Title',
               ),
             ),
-            SizedBox(height: 12.0),
+            const SizedBox(height: 12.0),
             TextField(
               controller: _contentController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Content',
               ),
               maxLines: null,
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 final title = _titleController.text;
                 final content = _contentController.text;
                 _addNote(title, content);
               },
-              child: Text('Save'),
+              child: const Text('Save'),
             ),
           ],
         ),

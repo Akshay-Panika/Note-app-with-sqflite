@@ -52,11 +52,21 @@ class _NoteScreenState extends State<NoteScreen> {
     _refreshNotes();
   }
 
+  int _calculateTotalNotes() {
+    return _notes.length;
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notes'),
+        title: const Text('Notes app with sqflite'),
+        actions:  [
+          Center(child: Text('${_calculateTotalNotes()}',style: const TextStyle(color: Colors.white,fontSize: 19),)),
+          const SizedBox(width: 25,)
+        ],
       ),
       body: _notes.isEmpty
           ? const Center(child: Text('No notes added yet'))
@@ -64,35 +74,41 @@ class _NoteScreenState extends State<NoteScreen> {
         itemCount: _notes.length,
         itemBuilder: (context, index) {
           final note = _notes[index];
-          return ListTile(
-            leading: CircleAvatar(child: Text(index.toString()),),
-            title: Text(note['title']),
-            subtitle: Text(note['content']),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.edit),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => UpdateNoteScreen(
-                          database: _database,
-                          note: note,
-                          onUpdate: () => _refreshNotes(),
+          int count=1;
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListTile(
+              shape: const OutlineInputBorder(borderSide: BorderSide(color: Colors.blue,width: 1,)),
+              leading: CircleAvatar(child: Text('${index+count}'),),
+              title: Text(note['title']),
+              subtitle: Text(note['content']),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.edit),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UpdateNoteScreen(
+                            database: _database,
+                            note: note,
+                            onUpdate: () => _refreshNotes(),
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(Icons.delete),
-                  onPressed: () {
-                    _deleteNote(note['id']);
-                  },
-                ),
-              ],
+                      );
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: () {
+                      _deleteNote(note['id']);
+
+                    },
+                  ),
+                ],
+              ),
             ),
           );
         },

@@ -27,20 +27,20 @@ class _UpdateNoteScreenState extends State<UpdateNoteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Update Note'),
+        title: const Text('Update Note'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextField(
               controller: _titleController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Title',
               ),
             ),
-            SizedBox(height: 12.0),
+            const SizedBox(height: 12.0),
             TextField(
               controller: _contentController,
               decoration: const InputDecoration(
@@ -48,7 +48,7 @@ class _UpdateNoteScreenState extends State<UpdateNoteScreen> {
               ),
               maxLines: null,
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 final title = _titleController.text;

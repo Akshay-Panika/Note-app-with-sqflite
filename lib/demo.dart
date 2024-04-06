@@ -73,7 +73,7 @@ class _NoteListState extends State<NoteList> {
         title: Text('Note'),
       ),
       body: _notes.isEmpty
-          ? Center(child: Text('No notes added yet'))
+          ? const Center(child: Text('No notes added yet'))
           : ListView.builder(
         itemCount: _notes.length,
         itemBuilder: (context, index) {
@@ -85,7 +85,7 @@ class _NoteListState extends State<NoteList> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  icon: Icon(Icons.edit),
+                  icon: const Icon(Icons.edit),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -100,7 +100,7 @@ class _NoteListState extends State<NoteList> {
                   },
                 ),
                 IconButton(
-                  icon: Icon(Icons.delete),
+                  icon: const Icon(Icons.delete),
                   onPressed: () {
                     _deleteNote(note['id']);
                   },
